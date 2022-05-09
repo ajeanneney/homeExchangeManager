@@ -16,8 +16,6 @@ public class HomeExchangeManagerApplication {
 
         UserRepository userDao = ctx.getBean(UserRepository.class);
 
-        List<User> users = userDao.findAll();
-        users.forEach(user -> System.out.println(user.getFirstname()));
     }
 
 }
