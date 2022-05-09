@@ -13,9 +13,13 @@ public class HomeExchangeManagerApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(HomeExchangeManagerApplication.class, args);
-
         UserRepository userDao = ctx.getBean(UserRepository.class);
 
+        //seeder :
+        if (userDao.findByMail("admin@admin.com") == null) {
+            User user = new User("admin", "admin", "admin@admin.com", "admin");
+            userDao.save(user);
+        }
     }
 
 }
