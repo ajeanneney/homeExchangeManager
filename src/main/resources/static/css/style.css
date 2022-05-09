@@ -1,6 +1,9 @@
 html{
-    background-color: black;
     font-family: Verdana;
+}
+
+body{
+    margin-top: 50px;
 }
 
 ul {
@@ -11,7 +14,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: black;
+    background-color: #395780;
 }
 
 li {
@@ -27,5 +30,5 @@ li a {
 }
 
 li a:hover {
-    background-color: #333;
+    background-color: #74AEFF;
 }

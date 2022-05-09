@@ -3,8 +3,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Insert title here</title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/test.css" />
+    <title>Connexion</title>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
+    <jsp:include page="header.jsp"></jsp:include>
 </head>
 <body>
 <h1>Page de connexion</h1>
