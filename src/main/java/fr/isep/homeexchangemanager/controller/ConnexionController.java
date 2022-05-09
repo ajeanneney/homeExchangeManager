@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
 
 @Controller
@@ -17,21 +19,28 @@ public class ConnexionController {
     private UserRepository userDao;
 
     @RequestMapping(value = "/connexion")
-    public String search(
+    public String connexion(
             @RequestParam(name = "mail", defaultValue = "") String mail,
-            @RequestParam(name = "password", defaultValue = "") String password){
-        System.out.println(mail);
-        System.out.println(password);
+            @RequestParam(name = "password", defaultValue = "") String password,
+            HttpServletResponse response){
 
-        if(!Objects.equals(mail, "")) {
+        if(!Objects.equals(mail, "") && !Objects.equals(password, "")) {
             User user = userDao.findByMail(mail);
             if(Objects.equals(user.getPassword(), password)){
                 System.out.println("connecté");
+                Cookie cookie = new Cookie("userId", user.getId().toString());
+                response.addCookie(cookie);
+                return "redirect:connected";
             } else{
                 System.out.println("mauvais password");
             }
         }
         return "connexion";
+    }
+
+    @RequestMapping(value = "/connected")
+    public String connected(){
+        return "connected";
     }
 
 }
