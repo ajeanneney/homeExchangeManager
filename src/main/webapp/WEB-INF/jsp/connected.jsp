@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Connexion</title>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
-    <jsp:include page="header.jsp"></jsp:include>
+    <jsp:include page="header.jsp"/>
 </head>
 <body>
 <h1>Utilisateur connecté</h1>
