@@ -1,8 +1,10 @@
 package fr.isep.homeexchangemanager.controller;
 
 import fr.isep.homeexchangemanager.dao.HouseRepository;
+import fr.isep.homeexchangemanager.dao.ReservationRepository;
 import fr.isep.homeexchangemanager.dao.UserRepository;
 import fr.isep.homeexchangemanager.entities.House;
+import fr.isep.homeexchangemanager.entities.Reservation;
 import fr.isep.homeexchangemanager.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,9 @@ public class ConnectedController {
     @Autowired
     private HouseRepository houseDao;
 
+    @Autowired
+    private ReservationRepository reservationDao;
+
     @RequestMapping(value = "/home")
     public String home(
             Model model,
@@ -33,6 +38,10 @@ public class ConnectedController {
 
             List<House> houses = houseDao.findByOwner(user);
             model.addAttribute("houses", houses);
+
+            List<Reservation> reservations = reservationDao.findByTenant(user);
+            model.addAttribute("reservations", reservations);
+            System.out.println(reservations.get(0));
 
             return "home";
         }

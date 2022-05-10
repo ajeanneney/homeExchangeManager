@@ -28,5 +28,23 @@ Maisons : <br>
         </tr>
     </c:forEach>
 </table>
+<br>
+Reservations : <br>
+<table class="table">
+    <tr>
+<%--        <th>maison</th>--%>
+        <th>date debut</th>
+        <th>date fin</th>
+<%--        <th>validée?</th>--%>
+    </tr>
+    <c:forEach items="${reservations}" var="r">
+        <tr>
+<%--            <td>${r.house}</td>--%>
+            <td>${r.startDate}</td>
+            <td>${r.endDate}</td>
+<%--            <td>${r.isValidated}</td>--%>
+        </tr>
+    </c:forEach>
+</table>
 </body>
 </html>
