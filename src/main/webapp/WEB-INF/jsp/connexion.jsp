@@ -10,7 +10,7 @@
 <body>
 
 <div class="d-flex justify-content-center flex-nowrap">
-    <form action="/connexion" method="post" class=" shadow rounded p-3 m-3">
+    <form action="/connexion" method="post" class="shadow rounded p-3 m-3">
         <h1>Page de connexion</h1>
         <div class="form-group p-2">
             <label for="mail">Adresse mail</label>
