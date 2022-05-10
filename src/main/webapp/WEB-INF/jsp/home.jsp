@@ -10,8 +10,6 @@
 </head>
 <body>
 <h1>Home</h1>
-<a href="disconnect">Deconnexion</a>
-<br><br>
 
 <div class="d-flex justify-content-around">
 

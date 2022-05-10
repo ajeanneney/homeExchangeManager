@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <!DOCTYPE html>
@@ -16,7 +17,14 @@
     <li><a href="#findAHost">Find a Host</a></li>
     <li><a href="#becomeAHost">Become A Host</a></li>
     <li><a href="#sharePetsServices">Share Pet's Services</a></li>
-    <li style="float:right"><a href="#logIn">Log In / Sign Up</a></li>
+    <c:choose>
+        <c:when test="${cookie['userId'] == null || cookie['userId'] == ''}">
+            <li style="float:right"><a href="#logIn">Log In / Sign Up</a></li>
+        </c:when>
+        <c:otherwise>
+            <li style="float:right"><a href="/disconnect">Disconnect</a></li>
+        </c:otherwise>
+    </c:choose>
 </ul>
 
 </body>
