@@ -32,17 +32,17 @@ Maisons : <br>
 Reservations : <br>
 <table class="table">
     <tr>
-<%--        <th>maison</th>--%>
+        <th>maison</th>
         <th>date debut</th>
         <th>date fin</th>
-<%--        <th>validée?</th>--%>
+        <th>validée?</th>
     </tr>
     <c:forEach items="${reservations}" var="r">
         <tr>
-<%--            <td>${r.house}</td>--%>
+            <td>${r.house.getDescription()}</td>
             <td>${r.startDate}</td>
             <td>${r.endDate}</td>
-<%--            <td>${r.isValidated}</td>--%>
+            <td>${r.validated}</td>
         </tr>
     </c:forEach>
 </table>
