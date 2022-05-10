@@ -31,7 +31,7 @@ public class ConnectedController {
     public String home(
             Model model,
             @CookieValue(value = "userId", defaultValue = "") String userId){
-        if(Objects.equals(userId, "")){return "redirect:connexion";} //si pas connecté retour page connexion
+        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:connexion";} //si pas connecté retour page connexion
         else{
             User user = userDao.findById(Long.valueOf(userId)).orElse(null);
             model.addAttribute("user", user);
@@ -41,7 +41,7 @@ public class ConnectedController {
 
             List<Reservation> reservations = reservationDao.findByTenant(user);
             model.addAttribute("reservations", reservations);
-            System.out.println(reservations.get(0));
+
 
             return "home";
         }
