@@ -2,6 +2,7 @@ package fr.isep.homeexchangemanager.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 public class Reservation implements Serializable {
@@ -15,4 +16,11 @@ public class Reservation implements Serializable {
     @ManyToOne
     @JoinColumn(name = "tenantUserId")
     private User tenantUser;
+
+    @Temporal(TemporalType.DATE)
+    private Date startDate;
+
+    @Temporal(TemporalType.DATE)
+    private Date endDate;
+
 }

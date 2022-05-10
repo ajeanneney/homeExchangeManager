@@ -16,7 +16,7 @@ public class MainController {
         if(Objects.equals(userId, "")){
             return "redirect:connexion";
         }else{
-            return "connected";
+            return "home";
         }
     }
 
@@ -25,6 +25,6 @@ public class MainController {
         Cookie cookie = new Cookie("userId", null);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-        return "/connexion";
+        return "redirect:connexion";
     }
 }

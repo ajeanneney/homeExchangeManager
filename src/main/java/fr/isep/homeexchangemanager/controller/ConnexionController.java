@@ -27,10 +27,9 @@ public class ConnexionController {
         if(!Objects.equals(mail, "") && !Objects.equals(password, "")) {
             User user = userDao.findByMail(mail);
             if(Objects.equals(user.getPassword(), password)){
-                System.out.println("connecté");
                 Cookie cookie = new Cookie("userId", user.getId().toString());
                 response.addCookie(cookie);
-                return "redirect:connected";
+                return "redirect:home";
             } else{
                 System.out.println("mauvais password");
             }
