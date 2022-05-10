@@ -28,10 +28,10 @@
             <th>title</th>
             <th>description</th>
         </tr>
-        <c:forEach items="${houses}" var="t">
+        <c:forEach items="${houses}" var="h">
             <tr>
-                <td>${t.title}</td>
-                <td>${t.description}</td>
+                <td>${h.title}</td>
+                <td>${h.description}</td>
             </tr>
         </c:forEach>
     </table>
