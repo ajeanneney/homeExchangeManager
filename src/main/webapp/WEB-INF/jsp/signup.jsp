@@ -10,8 +10,19 @@
 <body>
 
 <div class="d-flex justify-content-center flex-nowrap">
-    <form action="/connexion" method="post" class="shadow rounded p-3 m-3">
-        <h1>Page de connexion</h1>
+    <form action="/signup" method="post" class="shadow rounded p-3 m-3">
+        <h1>Page d'inscription</h1>
+        <div class="row">
+        <div class="form-group p-2 col">
+            <label for="firstname">Prénom</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Entrez votre prénom" required>
+        </div>
+        <div class="form-group p-2 col">
+            <label for="lastname">Nom</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Entrez votre nom" required>
+        </div>
+        </div>
+        <div class="row">
         <div class="form-group p-2">
             <label for="mail">Adresse mail</label>
             <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Entrez votre mail" required>
@@ -21,8 +32,9 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
         </div>
         <div class="form-group p-2 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary m-2">Connexion</button>
-            <a href="/signup"><button type="button" class="btn btn-secondary m-2">Créer un compte</button></a>
+            <button type="submit" class="btn btn-primary m-2">S'inscrire</button>
+            <a href="/connexion"><button type="button" class="btn btn-secondary m-2">S'identifier</button></a>
+        </div>
         </div>
     </form>
 </div>
