@@ -90,6 +90,36 @@ form.shadow2{
     text-align: center;
 }
 
+div.shadow3{
+    font-family: Verdana;
+    color: #74AEFF;
+
+    border: #74AEFF solid 2px;
+    border-radius: 30px;
+    padding : 10px 15px 25px 15px;
+    min-width: 350px;
+    text-align: center;
+}
+
+input.input2{
+    font-family: Verdana;
+    color: #74AEFF;
+    border: #74AEFF solid 2px;
+    border-radius: 30px;
+    padding : 5px 0px 5px 10px;
+    min-width: 350px;
+    margin-bottom: 5px;
+}
+
+textarea.input2{
+    font-family: Verdana;
+    color: #74AEFF;
+    border: #74AEFF solid 2px;
+    border-radius: 30px;
+    padding : 5px 0px 5px 10px;
+    min-width: 350px;
+}
+
 input.form-control{
     font-family: Verdana;
     color: #74AEFF;
@@ -128,6 +158,18 @@ button.btn_btn-secondary_m-2{
     background-color: #74AEFF;
     padding-bottom: 10px;
     padding-top: 10px;
+}
+
+button.btn_btn-ter_m-2{
+    margin-top: 10px;
+    width:200px;
+    font-family: Verdana;
+    border: #74AEFF solid 4px;
+    border-radius: 500px;
+    background-color: #74AEFF;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: #395780;
 }
 
 a {
