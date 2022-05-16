@@ -29,7 +29,7 @@ public class ConnexionController {
             @CookieValue(value = "userId", defaultValue = "") String userId,
             HttpServletResponse response){
 
-        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:connexion";}
+        if(!Objects.equals(userId, "") && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:home";}
 
         if(!Objects.equals(mail, "") && !Objects.equals(password, "")) {
             User user = userDao.findByMail(mail);
@@ -43,14 +43,14 @@ public class ConnexionController {
         }
         return "connexion";
     }
-    
+
     @RequestMapping(value = "/signup")
     public String signUp(
             ServletRequest request,
             HttpServletResponse response,
             @CookieValue(value = "userId", defaultValue = "") String userId){
 
-        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:connexion";}
+        if(!Objects.equals(userId, "") && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:home";}
 
         Map<String, String[]> paramMap = request.getParameterMap();
 
