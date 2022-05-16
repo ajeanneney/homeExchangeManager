@@ -15,8 +15,8 @@
 
 <ul>
     <li style="padding-left: 20px"><img src="<%=request.getContextPath()%>/images/logo.png" height="60" width="60"/></li>
-    <li style="padding-left: 50px"><a href="/connexion">Louer un bien</a></li>
-    <li><a href="/newhome">Mettre en location</a></li>
+    <li style="padding-left: 50px"><a href="/search">Louer un bien</a></li>
+    <li><a href="/newhouse">Mettre en location</a></li>
     <li><a href="/home">Mes locations</a></li>
 
     <c:choose>
