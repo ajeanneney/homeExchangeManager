@@ -15,8 +15,9 @@
 
 <ul>
     <li style="padding-left: 20px"><img src="<%=request.getContextPath()%>/images/logo.png" height="60" width="60"/></li>
-    <li style="padding-left: 50px"><a href="/home">Louer un bien</a></li>
-    <li><a href="/home">Mettre en location</a></li>
+    <li style="padding-left: 50px"><a href="/connexion">Louer un bien</a></li>
+    <li><a href="/connexion">Mettre en location</a></li>
+    <li><a href="/home">Mes locations</a></li>
 
     <c:choose>
         <c:when test="${cookie['userId'] == null || cookie['userId'] == ''}">
