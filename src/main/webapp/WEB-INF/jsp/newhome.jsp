@@ -11,13 +11,13 @@
 
 <form method="post" action="/newhome">
     <div>
-        <input type="Nom de la maison" name="title" id="title" placeholder="Nom de la maison">
+        <input type="Nom de la maison" class="input2" name="title" id="title" placeholder="Nom de la maison">
     </div>
     <div>
-        <textarea name="description" id="description" placeholder="Entrez la description de votre maison" rows="10", cols="50"></textarea>
+        <textarea name="description" class="input2" id="description" placeholder="Entrez la description de votre maison" rows="10", cols="50"></textarea>
     </div>
     <div>
-        <button type="submit">Créer la maison</button>
+        <button type="submit" class="btn_btn-ter_m-2">Créer la maison</button>
     </div>
 
 </form>
