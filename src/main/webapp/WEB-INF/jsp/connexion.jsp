@@ -9,21 +9,25 @@
 </head>
 <body>
 
-<div class="d-flex justify-content-center flex-nowrap">
-    <form action="/connexion" method="post" class="shadow rounded p-3 m-3">
-        <h1>Page de connexion</h1>
+<h1>Page de connexion</h1>
+
+<div class="connexion">
+    <form action="/connexion" method="post" class="shadow2">
+        <h2>Profil</h2>
         <div class="form-group p-2">
-            <label for="mail">Adresse mail</label>
+            <%--<!<label for="mail">Adresse mail</label>>--%>
             <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Entrez votre mail" required>
         </div>
         <div class="form-group p-2">
-            <label for="password">Mot de passe</label>
+            <%--<label for="password">Mot de passe</label>--%>
             <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
         </div>
-        <div class="form-group p-2 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary m-2">Connexion</button>
-            <a href="/signup"><button type="button" class="btn btn-secondary m-2">Créer un compte</button></a>
+        <div class="form-group2">
+            <button type="submit" class="btn_btn-primary_m-2">Connexion</button><br>
+            <%--<a href="/signup"><button type="button" class="btn_btn-secondary_m-2">Si vous n'avez pas de compte, veillez en créer un
+            </button></a>--%>
         </div>
+        <a href="/signup">Si vous n'avez pas de compte, veillez en créer un</a>
     </form>
 </div>
 

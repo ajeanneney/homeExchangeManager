@@ -14,15 +14,16 @@
 <body>
 
 <ul>
-    <li><a href="#findAHost">Find a Host</a></li>
-    <li><a href="#becomeAHost">Become A Host</a></li>
-    <li><a href="#sharePetsServices">Share Pet's Services</a></li>
+    <img src="/resources/images/logo.jpg" />
+    <li><a href="/home">Louer un bien</a></li>
+    <li><a href="/home">Mettre en location</a></li>
+
     <c:choose>
         <c:when test="${cookie['userId'] == null || cookie['userId'] == ''}">
-            <li style="float:right"><a href="#logIn">Log In / Sign Up</a></li>
+            <li style="float:right"><a href="/signup">Connexion/Inscription</a></li>
         </c:when>
         <c:otherwise>
-            <li style="float:right"><a href="/disconnect">Disconnect</a></li>
+            <li style="float:right"><a href="/disconnect">Se déconnecter</a></li>
         </c:otherwise>
     </c:choose>
 </ul>

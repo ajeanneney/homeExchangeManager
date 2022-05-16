@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
     <jsp:include page="header.jsp"/>
 </head>
+
 <body>
 <h1>Home</h1>
 
@@ -42,7 +43,7 @@
             <th>maison</th>
             <th>date debut</th>
             <th>date fin</th>
-            <th>validée?</th>
+            <th>validation</th>
         </tr>
         <c:forEach items="${reservations}" var="r">
             <tr>
