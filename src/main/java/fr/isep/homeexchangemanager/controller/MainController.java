@@ -20,7 +20,7 @@ public class MainController {
     public String acceuil(@CookieValue(value = "userId", defaultValue = "") String userId){
         if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:connexion";}
         else{
-            return "home";
+            return "redirect:home";
         }
     }
 
