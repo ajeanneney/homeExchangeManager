@@ -14,16 +14,16 @@
 <body>
 
 <ul>
-    <img src="/resources/images/logo.jpg" />
-    <li><a href="/home">Louer un bien</a></li>
+    <li style="padding-left: 20px"><img src="<%=request.getContextPath()%>/images/logo.png" height="60" width="60"/></li>
+    <li style="padding-left: 50px"><a href="/home">Louer un bien</a></li>
     <li><a href="/home">Mettre en location</a></li>
 
     <c:choose>
         <c:when test="${cookie['userId'] == null || cookie['userId'] == ''}">
-            <li style="float:right"><a href="/signup">Connexion/Inscription</a></li>
+            <li style="float:right; padding-right: 50px"><a href="/signup">Connexion/Inscription</a></li>
         </c:when>
         <c:otherwise>
-            <li style="float:right"><a href="/disconnect">Se déconnecter</a></li>
+            <li style="float:right; padding-right: 50px "><a href="/disconnect">Se déconnecter</a></li>
         </c:otherwise>
     </c:choose>
 </ul>
