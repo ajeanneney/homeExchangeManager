@@ -22,5 +22,10 @@
         <img src="<%=request.getContextPath()%>/images/housephotos/${p.url}">
     </c:forEach>
 
+    <br><br>
+
+    <a href="/reserve/${house.id}">Réserver cette maison</a>
+
+
 </body>
 </html>

@@ -33,8 +33,8 @@
                 <td>${h.description}</td>
             </tr>
         </c:forEach>
-        <a href="/newhouse">Ajouter une maison</a>
     </table>
+        <a href="/newhouse">Ajouter une maison</a>
     </div>
 
     <div class="shadow3">
@@ -55,6 +55,7 @@
             </tr>
         </c:forEach>
     </table>
+        <a href="/search">Réserver une maison</a>
     </div>
 
 </div>

@@ -2,6 +2,7 @@ package fr.isep.homeexchangemanager.entities;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,10 +23,10 @@ public class Reservation implements Serializable {
     @JoinColumn(name = "tenantUserId")
     private User tenantUser;
 
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
     private Date startDate;
 
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
     private Date endDate;
 
     private Boolean isValidated;

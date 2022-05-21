@@ -11,7 +11,8 @@
 <body>
 <c:forEach items="${houses}" var="h">
         ${h.title}<br>
-        ${h.description}<br><br>
+        ${h.description}<br>
+        <a href="house/${h.id}">Voir cette maison</a><br><br>
 </c:forEach>
 </body>
 </html>
