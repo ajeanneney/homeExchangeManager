@@ -29,7 +29,7 @@
         </tr>
         <c:forEach items="${houses}" var="h">
             <tr>
-                <td>${h.title}</td>
+                <td><a href="house/${h.id}">${h.title}</a></td>
                 <td>${h.description}</td>
             </tr>
         </c:forEach>

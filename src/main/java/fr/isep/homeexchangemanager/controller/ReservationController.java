@@ -26,7 +26,7 @@ public class ReservationController {
             Model model,
             @CookieValue(value = "userId", defaultValue = "") String userId){
 
-        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:connexion";} //si pas connecté retour page connexion
+        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
         List<House> houses = houseDao.findAll();
         model.addAttribute("houses", houses);

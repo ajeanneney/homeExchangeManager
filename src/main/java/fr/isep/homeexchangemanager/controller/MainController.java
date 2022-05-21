@@ -18,7 +18,7 @@ public class MainController {
 
     @RequestMapping(value = "/")
     public String acceuil(@CookieValue(value = "userId", defaultValue = "") String userId){
-        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:connexion";}
+        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/connexion";}
         else{
             return "redirect:home";
         }
@@ -29,6 +29,6 @@ public class MainController {
         Cookie cookie = new Cookie("userId", null);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-        return "redirect:connexion";
+        return "redirect:/";
     }
 }

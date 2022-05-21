@@ -9,10 +9,9 @@ import fr.isep.homeexchangemanager.entities.User;
 import fr.isep.homeexchangemanager.utils.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletRequest;
@@ -32,6 +31,24 @@ public class HouseController {
     @Autowired
     private PhotoRepository photoDao;
 
+    @GetMapping("/house/{id}")
+    public String viewHouse(
+            @CookieValue(value = "userId", defaultValue = "") String userId,
+            @PathVariable(value = "id") String houseId,
+            Model model
+    ){
+        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
+
+        House house = houseDao.findById(Long.valueOf(houseId)).orElse(null);
+        Photo[] photos = photoDao.findByHouse(house);
+
+        model.addAttribute("house", house);
+        model.addAttribute("photos", photos);
+
+        return "viewhouse";
+    }
+
+
     @RequestMapping(value = "/newhouse")
     public String newHouse(
             @CookieValue(value = "userId", defaultValue = "") String userId,
@@ -39,7 +56,7 @@ public class HouseController {
             @RequestParam(name = "description", defaultValue = "") String description,
             @RequestParam(name = "photos", required = false) MultipartFile[] photos,
             ServletRequest request) throws IOException {
-        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:connexion";} //si pas connecté retour page connexion
+        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
         if(!Objects.equals(title, "") && !Objects.equals(description, "")){
 
