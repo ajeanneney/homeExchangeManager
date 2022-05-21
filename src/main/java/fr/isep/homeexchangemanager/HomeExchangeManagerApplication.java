@@ -1,6 +1,7 @@
 package fr.isep.homeexchangemanager;
 
 import fr.isep.homeexchangemanager.dao.HouseRepository;
+import fr.isep.homeexchangemanager.dao.PhotoRepository;
 import fr.isep.homeexchangemanager.dao.ReservationRepository;
 import fr.isep.homeexchangemanager.dao.UserRepository;
 import fr.isep.homeexchangemanager.entities.House;
@@ -21,9 +22,11 @@ public class HomeExchangeManagerApplication {
         UserRepository userDao = ctx.getBean(UserRepository.class);
         HouseRepository houseDao = ctx.getBean(HouseRepository.class);
         ReservationRepository reservationDao = ctx.getBean(ReservationRepository.class);
+        PhotoRepository photoDao = ctx.getBean(PhotoRepository.class);
 
         //cleaner :
         reservationDao.deleteAll();
+        photoDao.deleteAll();
         houseDao.deleteAll();
         userDao.deleteAll();
 

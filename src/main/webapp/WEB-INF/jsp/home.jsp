@@ -33,6 +33,7 @@
                 <td>${h.description}</td>
             </tr>
         </c:forEach>
+        <a href="/newhouse">Ajouter une maison</a>
     </table>
     </div>
 

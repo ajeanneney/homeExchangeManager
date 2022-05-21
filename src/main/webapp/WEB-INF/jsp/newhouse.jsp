@@ -9,12 +9,15 @@
 </head>
 <h1>Ajouter une nouvelle maison</h1>
 
-<form method="post" action="/newhouse">
+<form method="post" action="/newhouse" enctype="multipart/form-data">
     <div>
         <input type="Nom de la maison" class="input2" name="title" id="title" placeholder="Nom de la maison">
     </div>
     <div>
         <textarea name="description" class="input2" id="description" placeholder="Entrez la description de votre maison" rows="10", cols="50"></textarea>
+    </div>
+    <div>
+        <input type="file" id="photos" name="photos" accept="image/png, image/jpeg" multiple>
     </div>
     <div>
         <button type="submit" class="btn_btn-ter_m-2">Créer la maison</button>

@@ -17,4 +17,36 @@ public class Photo implements Serializable {
     private House house;
 
     private String url;
+
+    public Photo() {
+    }
+
+    public Photo(House house, String url) {
+        this.house = house;
+        this.url = url;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

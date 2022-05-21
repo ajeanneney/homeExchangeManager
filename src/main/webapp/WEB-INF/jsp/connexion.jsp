@@ -16,7 +16,7 @@
         <h2>Profil</h2>
         <div class="form-group p-2">
             <%--<!<label for="mail">Adresse mail</label>>--%>
-            <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Entrez votre mail" required>
+            <input autofocus type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Entrez votre mail" required>
         </div>
         <div class="form-group p-2">
             <%--<label for="password">Mot de passe</label>--%>

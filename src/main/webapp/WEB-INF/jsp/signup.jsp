@@ -16,7 +16,7 @@
         <div class="row">
         <div class="form-group p-2 col">
             <label for="firstname">Prénom</label>
-            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Entrez votre prénom" required>
+            <input autofocus type="text" class="form-control" id="firstname" name="firstname" placeholder="Entrez votre prénom" required>
         </div>
         <div class="form-group p-2 col">
             <label for="lastname">Nom</label>
