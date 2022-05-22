@@ -10,22 +10,24 @@
 </head>
 <body>
 
-    <h1>Voir une maison</h1>
+<br><br><br>
+    <div class="wrapper2">
 
-    Nom de la maison : ${house.title}<br>
-    Description de la maison : ${house.description}<br>
+        <div class="house_photos">
+        Photos :
+        <c:forEach items="${photos}" var="p">
+            <img src="<%=request.getContextPath()%>/images/housephotos/${p.url}">
+        </c:forEach>
+        </div>
 
+        <div class="house_photos">
+            <a class = "titre_maison2"> ${house.title}<br> </a>
+            <a class = "description_maison2"> ${house.description}<br> </a>
+            <br>
+            <br>
+            <a class = "btn_btn-primary_m-2" href="/reserve/${house.id}">Réserver cette maison</a>
+        </div>
 
-    <br><br>
-    Photos :
-    <c:forEach items="${photos}" var="p">
-        <img src="<%=request.getContextPath()%>/images/housephotos/${p.url}">
-    </c:forEach>
-
-    <br><br>
-
-    <a href="/reserve/${house.id}">Réserver cette maison</a>
-
-
+    </div>
 </body>
 </html>

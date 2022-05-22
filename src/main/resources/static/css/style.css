@@ -93,7 +93,8 @@ form.shadow2{
 div.shadow3{
     font-family: Verdana;
     color: #74AEFF;
-
+    margin-left: 8px;
+    margin-right: 8px;
     border: #74AEFF solid 2px;
     border-radius: 30px;
     padding : 10px 15px 25px 15px;
@@ -172,8 +173,93 @@ button.btn_btn-ter_m-2{
     color: #395780;
 }
 
+
+/* ------------------------   SEARCH HOUSE ------------------------ */
+
+div.wrapper{
+    width: 15%;
+    height: 200px;
+    font-family: Verdana;
+    border: #74AEFF solid 4px;
+    border-radius: 20px;
+    padding: 20px;
+    float: left;
+    margin : 10px;
+    position: relative;
+}
+
+div.wrapper::selection{
+    background-color: #74AEFF;
+}
+
 a {
     color: #74AEFF;
     text-align: center;
+    font-size: small;
+    text-decoration: none;
+}
+
+a.titre_maison{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+a.description_maison{
     font-size: x-small;
+    margin-bottom: 30px;
+}
+
+a.titre_maison:hover {
+    color: #74AEFF;
+}
+a.description_maison:hover {
+    color: #74AEFF;
+}
+
+a.btn_btn-primary_m-2{
+    width:100%;
+    font-family: Verdana;
+    color: #395780;
+    border: #74AEFF solid 4px;
+    border-radius: 500px;
+    background-color: #74AEFF;
+    padding : 3px;
+}
+
+
+/* ------------------------   VIEW HOUSE ------------------------ */
+
+a.titre_maison2{
+    font-size: large;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+a.description_maison2{
+    font-size: medium;
+    margin-bottom: 30px;
+}
+
+a.titre_maison2:hover {
+    color: #74AEFF;
+}
+a.description_maison2:hover {
+    color: #74AEFF;
+}
+
+div.wrapper2{
+    display: grid;
+    margin :70px;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 30px;
+}
+
+div.house_photos{
+    width:100%;
+    font-family: Verdana;
+    color: #74AEFF;
+    border: #395780 solid 4px;
+    border-radius: 20px;
+    background-color: #395780;
+    padding : 20px;
 }

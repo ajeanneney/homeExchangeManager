@@ -34,7 +34,7 @@
             </tr>
         </c:forEach>
     </table>
-        <a href="/newhouse">Ajouter une maison</a>
+        <a class="btn_btn-primary_m-2" href="/newhouse">Ajouter une maison</a>
     </div>
 
     <div class="shadow3">
@@ -55,7 +55,7 @@
             </tr>
         </c:forEach>
     </table>
-        <a href="/search">Réserver une maison</a>
+        <a class="btn_btn-primary_m-2" href="/search">Réserver une maison</a>
     </div>
 
 </div>

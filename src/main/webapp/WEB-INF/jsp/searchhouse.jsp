@@ -9,10 +9,17 @@
     <jsp:include page="header.jsp"/>
 </head>
 <body>
+
 <c:forEach items="${houses}" var="h">
-        ${h.title}<br>
-        ${h.description}<br>
-        <a href="house/${h.id}">Voir cette maison</a><br><br>
+
+    <div class="wrapper">
+        <a class = "titre_maison"> ${h.title}<br> </a>
+        <a class = "description_maison">${h.description}<br> <br> </a>
+        <a class="btn_btn-primary_m-2" href="house/${h.id}">Voir cette maison</a>
+    </div>
+
 </c:forEach>
+
+
 </body>
 </html>
