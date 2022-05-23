@@ -5,7 +5,10 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Entity
 public class House implements Serializable {
@@ -19,6 +22,17 @@ public class House implements Serializable {
     private User owner;
     private String title;
     private String description;
+
+    @OneToMany(mappedBy="house")
+    private List<Photo> photos;
+
+    public List<Photo> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<Photo> photos) {
+        this.photos = photos;
+    }
 
     public House() {
     }

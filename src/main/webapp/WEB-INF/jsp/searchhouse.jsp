@@ -15,7 +15,7 @@
     <div class="wrapper">
         <a class = "titre_maison"> ${h.title}<br></a>
         <a class = "description_maison">${h.description}<br><br></a>
-        <img src="<%=request.getContextPath()%>/images/housephotos/${p.url}"><br><br>
+        <img src="<%=request.getContextPath()%>/images/housephotos/${h.photos[0].url}"><br><br>
         <a class="btn_btn-primary_m-2" href="house/${h.id}">Voir cette maison</a>
     </div>
 
