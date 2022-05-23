@@ -18,20 +18,20 @@
         Prenom : ${user.firstname}<br>
         Nom : ${user.lastname}<br>
         Mail : ${user.mail}<br><br>
-        <a class="btn_btn-primary_m-2" href="/profile">Modifier son profil</a>
+        <a class="btn_btn-primary_m-2" href="/profile">Modifier mon profil</a>
     </div>
 
     <div class="shadow3">
     Maisons : <br>
     <table class="table">
         <tr>
-            <th>title</th>
-            <th>description</th>
+            <th><a class="titre_maison">Maison</a></th>
+            <th><a class="titre_maison">description</a></th>
         </tr>
         <c:forEach items="${houses}" var="h">
             <tr>
-                <td><a href="house/${h.id}">${h.title}</a></td>
-                <td>${h.description}</td>
+                <td><a class="titre_maison" href="house/${h.id}">${h.title}</a></td>
+                <td> ${h.description}</td>
             </tr>
         </c:forEach>
     </table>
