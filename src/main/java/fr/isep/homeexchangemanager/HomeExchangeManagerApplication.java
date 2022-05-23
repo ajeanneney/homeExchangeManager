@@ -1,18 +1,12 @@
 package fr.isep.homeexchangemanager;
 
-import fr.isep.homeexchangemanager.dao.HouseRepository;
-import fr.isep.homeexchangemanager.dao.PhotoRepository;
-import fr.isep.homeexchangemanager.dao.ReservationRepository;
-import fr.isep.homeexchangemanager.dao.UserRepository;
-import fr.isep.homeexchangemanager.entities.House;
-import fr.isep.homeexchangemanager.entities.Reservation;
-import fr.isep.homeexchangemanager.entities.User;
+import fr.isep.homeexchangemanager.dao.*;
+import fr.isep.homeexchangemanager.entities.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.util.Date;
-import java.util.List;
 
 @SpringBootApplication
 public class HomeExchangeManagerApplication {
@@ -23,6 +17,8 @@ public class HomeExchangeManagerApplication {
         HouseRepository houseDao = ctx.getBean(HouseRepository.class);
         ReservationRepository reservationDao = ctx.getBean(ReservationRepository.class);
         PhotoRepository photoDao = ctx.getBean(PhotoRepository.class);
+        ServiceRepository serviceDao = ctx.getBean(ServiceRepository.class);
+        ConstraintRepository constraintDao = ctx.getBean(ConstraintRepository.class);
 
         //cleaner :
         reservationDao.deleteAll();
@@ -30,6 +26,15 @@ public class HomeExchangeManagerApplication {
         houseDao.deleteAll();
         userDao.deleteAll();
 
+        //create constraints
+//        constraintDao.save(new Constraint("Non fumeur", "Cette maison est une maison non fumeur"));
+//        constraintDao.save(new Constraint("Pas d'enfants", "Cette location n'accepte pas les enfants"));
+//        constraintDao.save(new Constraint("2 enfants maximum", "Cette location n'accepte que 2 enfants maximum"));
+//        constraintDao.save(new Constraint("Pas d'animaux", "Les animaux ne sont pas acceptés dans cette maison"));
+
+        //create services
+        serviceDao.save(new Service("Nettoyage", "Vous devrez nettoyer la maison à la fin de votre séjour"));
+        serviceDao.save(new Service("Nettoyage", "Vous devrez nettoyer la maison à la fin de votre séjour"));
 
 
         //seeder :
