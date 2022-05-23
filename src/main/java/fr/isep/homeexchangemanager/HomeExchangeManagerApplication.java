@@ -27,15 +27,17 @@ public class HomeExchangeManagerApplication {
 //        userDao.deleteAll();
 
         //create services
-        serviceDao.deleteAll();
-        serviceDao.save(new Service("Nettoyage", "Vous devrez nettoyer la maison à la fin de votre séjour"));
-        serviceDao.save(new Service("Arrosage", "Vous devrez arroser les plantes durant votre séjour"));
+        if(serviceDao.findAll().size() == 0) {
+            serviceDao.save(new Service("Nettoyage", "Vous devrez nettoyer la maison à la fin de votre séjour"));
+            serviceDao.save(new Service("Arrosage", "Vous devrez arroser les plantes durant votre séjour"));
+        }
 
-        necessityDao.deleteAll();
-        necessityDao.save(new Necessity("Non fumeur", "Cette maison est une maison non fumeur"));
-        necessityDao.save(new Necessity("Pas d'enfants", "Cette location n'accepte pas les enfants"));
-        necessityDao.save(new Necessity("2 enfants maximum", "Cette location n'accepte que 2 enfants maximum"));
-        necessityDao.save(new Necessity("Pas d'animaux", "Les animaux ne sont pas acceptés dans cette maison"));
+        if(necessityDao.findAll().size() == 0) {
+            necessityDao.save(new Necessity("Non fumeur", "Cette maison est une maison non fumeur"));
+            necessityDao.save(new Necessity("Pas d'enfants", "Cette location n'accepte pas les enfants"));
+            necessityDao.save(new Necessity("2 enfants maximum", "Cette location n'accepte que 2 enfants maximum"));
+            necessityDao.save(new Necessity("Pas d'animaux", "Les animaux ne sont pas acceptés dans cette maison"));
+        }
 
 
 

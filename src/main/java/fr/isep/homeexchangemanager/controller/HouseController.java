@@ -44,10 +44,8 @@ public class HouseController {
         if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
         House house = houseDao.findById(Long.valueOf(houseId)).orElse(null);
-        Photo[] photos = photoDao.findByHouse(house);
 
         model.addAttribute("house", house);
-        model.addAttribute("photos", photos);
 
         return "viewhouse";
     }

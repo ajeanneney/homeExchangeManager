@@ -14,14 +14,27 @@
     <div class="wrapper2">
 
         <div class="house_photos">
-        <c:forEach items="${photos}" var="p">
+        <c:forEach items="${house.photos}" var="p">
             <img src="<%=request.getContextPath()%>/images/housephotos/${p.url}">
         </c:forEach>
         </div>
 
         <div class="house_photos">
             <a class = "titre_maison2"> ${house.title}<br> </a>
-            <a class = "description_maison2"> ${house.description}<br> </a>
+            <a class = "description_maison2"> ${house.description}</a><br><br>
+
+            Services à rendre dans cette maison : <br>
+            <c:forEach items="${house.services}" var="s">
+                ${s.name} : ${s.description}<br>
+            </c:forEach>
+            <br><br>
+
+            Contraintes de cette maison : <br>
+            <c:forEach items="${house.necessities}" var="n">
+                ${n.name} : ${n.description}<br>
+            </c:forEach>
+            <br><br>
+
             <br>
             <br>
             <a class = "btn_btn-primary_m-2" href="/reserve/${house.id}">Réserver cette maison</a>
