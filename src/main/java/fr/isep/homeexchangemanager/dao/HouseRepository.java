@@ -11,9 +11,10 @@ import java.util.List;
 
 public interface HouseRepository extends JpaRepository<House, Long> {
 
-    @Query("select h from House h where h.title = :x")
-    public House findByTitle(@Param("x")String title);
-
     @Query("select h from House h where h.owner = :x")
     public List<House> findByOwner(@Param("x")User owner);
+
+    @Query("select h from House h where h.owner <> :x")
+    public List<House> findAllExeptCurentUser(@Param("x")User user);
+
 }

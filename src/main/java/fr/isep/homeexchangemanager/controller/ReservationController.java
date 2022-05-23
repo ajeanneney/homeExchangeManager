@@ -37,7 +37,8 @@ public class ReservationController {
 
         if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
-        List<House> houses = houseDao.findAll();
+        User user = userDao.findById(Long.valueOf(userId)).orElse(null);
+        List<House> houses = houseDao.findAllExeptCurentUser(user);
         model.addAttribute("houses", houses);
         return "searchhouse";
     }

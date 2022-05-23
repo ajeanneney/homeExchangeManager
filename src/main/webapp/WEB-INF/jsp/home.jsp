@@ -17,7 +17,8 @@
     <div class="shadow3">
         Prenom : ${user.firstname}<br>
         Nom : ${user.lastname}<br>
-        Mail : ${user.mail}<br>
+        Mail : ${user.mail}<br><br>
+        <a class="btn_btn-primary_m-2" href="/profile">Modifier son profil</a>
     </div>
 
     <div class="shadow3">

@@ -51,31 +51,6 @@ public class HomeExchangeManagerApplication {
         reservationDao.save(reservation);
         reservationDao.save(reservation1);
 
-        if(userDao.findByMail("admin@admin.com") == null) {
-
-        }
-        if(houseDao.findByTitle("testHouse") == null){
-
-        }
-        if(houseDao.findByTitle("testHouse2") == null){
-
-        }
-
-        if(userDao.findByMail("user@user.com") == null) {
-
-        }
-        if(houseDao.findByTitle("testHouseUser") == null){
-
-        }
-        if(houseDao.findByTitle("testHouseUser2") == null){
-
-        }
-
-        if(reservationDao.findByTenant(user).size() < 2){
-
-
-        }
-
     }
 
 }
