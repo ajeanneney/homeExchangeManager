@@ -14,7 +14,6 @@
     <div class="wrapper2">
 
         <div class="house_photos">
-        Photos :
         <c:forEach items="${photos}" var="p">
             <img src="<%=request.getContextPath()%>/images/housephotos/${p.url}">
         </c:forEach>
