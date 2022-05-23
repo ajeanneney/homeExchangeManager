@@ -19,14 +19,18 @@
     <li><a href="/newhouse">Mettre en location</a></li>
     <li><a href="/home">Mes locations</a></li>
 
+    <li style="float:right; padding-right: 20px">
+        <img src="<%=request.getContextPath()%>/images/Icon_connect.png" height="55" width="55"/>
+    </li>
     <c:choose>
         <c:when test="${cookie['userId'] == null || cookie['userId'] == ''}">
-            <li style="float:right; padding-right: 50px"><a href="/signup">Connexion/Inscription</a></li>
+            <li style="float:right"><a href="/signup">Connexion/Inscription</a></li>
         </c:when>
         <c:otherwise>
-            <li style="float:right; padding-right: 50px "><a href="/disconnect">Se déconnecter</a></li>
+            <li style="float:right"><a href="/disconnect">Se déconnecter</a></li>
         </c:otherwise>
     </c:choose>
+
 </ul>
 
 </body>
