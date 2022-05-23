@@ -12,6 +12,7 @@ body{
 
 ul {
     position: fixed;
+    z-index:1;
     top: 0;
     left: 0;
     width: 100%;
@@ -177,14 +178,14 @@ button.btn_btn-ter_m-2{
 /* ------------------------   SEARCH HOUSE ------------------------ */
 
 div.wrapper{
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 350px;
     font-family: Verdana;
     border: #74AEFF solid 4px;
     border-radius: 20px;
     padding: 20px;
     float: left;
-    margin : 10px;
+    margin : 15px;
     position: relative;
 }
 
