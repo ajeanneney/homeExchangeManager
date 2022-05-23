@@ -6,20 +6,19 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
-public class Constraint implements Serializable {
+public class Necessity implements Serializable {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long id;
 
     private String name;
 
     private String description;
 
-    public Constraint() {
+    public Necessity() {
     }
 
-    public Constraint(String name, String description) {
+    public Necessity(String name, String description) {
         this.name = name;
         this.description = description;
     }
@@ -47,4 +46,6 @@ public class Constraint implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }

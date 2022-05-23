@@ -18,7 +18,7 @@ public class HomeExchangeManagerApplication {
         ReservationRepository reservationDao = ctx.getBean(ReservationRepository.class);
         PhotoRepository photoDao = ctx.getBean(PhotoRepository.class);
         ServiceRepository serviceDao = ctx.getBean(ServiceRepository.class);
-        ConstraintRepository constraintDao = ctx.getBean(ConstraintRepository.class);
+        NecessityRepository necessityDao = ctx.getBean(NecessityRepository.class);
 
 //        //cleaner :
 //        reservationDao.deleteAll();
@@ -26,15 +26,17 @@ public class HomeExchangeManagerApplication {
 //        houseDao.deleteAll();
 //        userDao.deleteAll();
 
-        //create constraints
-//        constraintDao.save(new Constraint("Non fumeur", "Cette maison est une maison non fumeur"));
-//        constraintDao.save(new Constraint("Pas d'enfants", "Cette location n'accepte pas les enfants"));
-//        constraintDao.save(new Constraint("2 enfants maximum", "Cette location n'accepte que 2 enfants maximum"));
-//        constraintDao.save(new Constraint("Pas d'animaux", "Les animaux ne sont pas acceptés dans cette maison"));
-
         //create services
+        serviceDao.deleteAll();
         serviceDao.save(new Service("Nettoyage", "Vous devrez nettoyer la maison à la fin de votre séjour"));
         serviceDao.save(new Service("Nettoyage", "Vous devrez nettoyer la maison à la fin de votre séjour"));
+
+        necessityDao.deleteAll();
+        necessityDao.save(new Necessity("Non fumeur", "Cette maison est une maison non fumeur"));
+        necessityDao.save(new Necessity("Pas d'enfants", "Cette location n'accepte pas les enfants"));
+        necessityDao.save(new Necessity("2 enfants maximum", "Cette location n'accepte que 2 enfants maximum"));
+        necessityDao.save(new Necessity("Pas d'animaux", "Les animaux ne sont pas acceptés dans cette maison"));
+
 
 
 //        //seeder :
