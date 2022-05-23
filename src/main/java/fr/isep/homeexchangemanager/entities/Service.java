@@ -3,7 +3,9 @@ package fr.isep.homeexchangemanager.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Service implements Serializable {
@@ -14,6 +16,17 @@ public class Service implements Serializable {
     private String name;
 
     private String description;
+
+    @ManyToMany
+    private List<House> houses;
+
+    public List<House> getHouses() {
+        return houses;
+    }
+
+    public void setHouses(List<House> houses) {
+        this.houses = houses;
+    }
 
     public Service() {
     }

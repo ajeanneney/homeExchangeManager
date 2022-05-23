@@ -1,11 +1,7 @@
 package fr.isep.homeexchangemanager.controller;
 
-import fr.isep.homeexchangemanager.dao.HouseRepository;
-import fr.isep.homeexchangemanager.dao.PhotoRepository;
-import fr.isep.homeexchangemanager.dao.UserRepository;
-import fr.isep.homeexchangemanager.entities.House;
-import fr.isep.homeexchangemanager.entities.Photo;
-import fr.isep.homeexchangemanager.entities.User;
+import fr.isep.homeexchangemanager.dao.*;
+import fr.isep.homeexchangemanager.entities.*;
 import fr.isep.homeexchangemanager.utils.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +14,10 @@ import javax.servlet.ServletRequest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Controller
 public class HouseController {
@@ -30,6 +28,12 @@ public class HouseController {
     private HouseRepository houseDao;
     @Autowired
     private PhotoRepository photoDao;
+
+    @Autowired
+    private ServiceRepository serviceDao;
+
+    @Autowired
+    private NecessityRepository necessityDao;
 
     @GetMapping("/house/{id}")
     public String viewHouse(
@@ -55,17 +59,33 @@ public class HouseController {
             @RequestParam(name = "title", defaultValue = "") String title,
             @RequestParam(name = "description", defaultValue = "") String description,
             @RequestParam(name = "photos", required = false) MultipartFile[] photos,
+            @RequestParam(name = "necessities", required = false) Long[] necessities,
+            @RequestParam(name = "services", required = false) Long[] services,
+            Model model,
             ServletRequest request) throws IOException {
         if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
         if(!Objects.equals(title, "") && !Objects.equals(description, "")){
 
+            List<Necessity> houseNecessities =
+                    Arrays.stream(necessities).map(n->{
+                        return necessityDao.findById(n).orElse(null);
+                    }).collect(Collectors.toList());
+
+            List<Service> houseServices =
+                    Arrays.stream(services).map(n->{
+                        return serviceDao.findById(n).orElse(null);
+                    }).collect(Collectors.toList());
+
             User user = userDao.findById(Long.parseLong(userId)).orElse(null);
             House house = new House(
                     user,
                     title,
-                    description
+                    description,
+                    houseServices,
+                    houseNecessities
             );
+
             House newHouse = houseDao.saveAndFlush(house);
 
             int counter = 0;
@@ -79,6 +99,11 @@ public class HouseController {
 
         }
 
+        List<Service> serviceList = serviceDao.findAll();
+        model.addAttribute("services", serviceList);
+
+        List<Necessity> necessityList = necessityDao.findAll();
+        model.addAttribute("necessities", necessityList);
 
         return "newhouse";
     }

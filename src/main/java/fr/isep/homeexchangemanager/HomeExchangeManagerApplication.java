@@ -29,7 +29,7 @@ public class HomeExchangeManagerApplication {
         //create services
         serviceDao.deleteAll();
         serviceDao.save(new Service("Nettoyage", "Vous devrez nettoyer la maison à la fin de votre séjour"));
-        serviceDao.save(new Service("Nettoyage", "Vous devrez nettoyer la maison à la fin de votre séjour"));
+        serviceDao.save(new Service("Arrosage", "Vous devrez arroser les plantes durant votre séjour"));
 
         necessityDao.deleteAll();
         necessityDao.save(new Necessity("Non fumeur", "Cette maison est une maison non fumeur"));

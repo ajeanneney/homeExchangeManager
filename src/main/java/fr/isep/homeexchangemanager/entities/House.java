@@ -26,6 +26,28 @@ public class House implements Serializable {
     @OneToMany(mappedBy="house")
     private List<Photo> photos;
 
+    @ManyToMany
+    private List<Service> services;
+
+    @ManyToMany
+    private List<Necessity> necessities;
+
+    public List<Necessity> getNecessities() {
+        return necessities;
+    }
+
+    public void setNecessities(List<Necessity> necessities) {
+        this.necessities = necessities;
+    }
+
+    public List<Service> getServices() {
+        return services;
+    }
+
+    public void setServices(List<Service> services) {
+        this.services = services;
+    }
+
     public List<Photo> getPhotos() {
         return photos;
     }
@@ -41,6 +63,14 @@ public class House implements Serializable {
         this.owner = owner;
         this.title = title;
         this.description = description;
+    }
+
+    public House(User owner, String title, String description, List<Service> services, List<Necessity> necessities) {
+        this.owner = owner;
+        this.title = title;
+        this.description = description;
+        this.services = services;
+        this.necessities = necessities;
     }
 
     public Long getId() {

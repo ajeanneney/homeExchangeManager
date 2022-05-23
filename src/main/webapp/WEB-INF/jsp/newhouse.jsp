@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +20,24 @@
     <div>
         <input type="file" id="photos" name="photos" accept="image/png, image/jpeg" multiple>
     </div>
+
+    <br>
+    <div>
+        Services à effectuer dans la maison :<br>
+    <c:forEach items="${services}" var="s">
+        <input type="checkbox" name="services" value="${s.id}">${s.name} : ${s.description}<br>
+    </c:forEach>
+    </div>
+    <br>
+
+    <div>
+        Contraintes de cette location : <br>
+        <c:forEach items="${necessities}" var="n">
+            <input type="checkbox" name="necessities" value="${n.id}">${n.name} : ${n.description}<br>
+        </c:forEach>
+    </div>
+
+
     <div>
         <button type="submit" class="btn_btn-ter_m-2">Créer la maison</button>
     </div>
