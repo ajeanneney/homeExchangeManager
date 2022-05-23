@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
     <jsp:include page="header.jsp"/>
 </head>
-<body>
+<body class="text_center">
 
 <c:forEach items="${houses}" var="h">
 

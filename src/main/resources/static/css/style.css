@@ -10,6 +10,12 @@ body{
     color: #74AEFF;
 }
 
+body.text_center{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+}
+
 ul {
     position: fixed;
     z-index:1;
@@ -177,7 +183,7 @@ button.btn_btn-ter_m-2{
 
 /* ------------------------   SEARCH HOUSE ------------------------ */
 
-div.wrapper{
+.wrapper{
     width: 350px;
     height: 350px;
     font-family: Verdana;
@@ -187,6 +193,7 @@ div.wrapper{
     float: left;
     margin : 15px;
     position: relative;
+
 }
 
 div.wrapper::selection{
