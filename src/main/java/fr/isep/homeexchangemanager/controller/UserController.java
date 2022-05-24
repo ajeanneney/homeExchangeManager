@@ -24,7 +24,7 @@ public class UserController {
             Model model
     ){
         String userId = (String) request.getSession().getAttribute("userId");
-        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";}
+        if(userId == null || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";}
 
         User user = userDao.findById(Long.valueOf(userId)).orElse(null);
         model.addAttribute("user", user);

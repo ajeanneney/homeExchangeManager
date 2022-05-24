@@ -37,7 +37,11 @@
 
             <br>
             <br>
-            <a class = "btn_btn-primary_m-2" href="/reserve/${house.id}">Réserver cette maison</a>
+            <c:choose>
+                <c:when test="${sessionScope.userId != house.owner.id}">
+                    <a class = "btn_btn-primary_m-2" href="/reserve/${house.id}">Réserver cette maison</a>
+                </c:when>
+            </c:choose>
         </div>
 
     </div>

@@ -37,7 +37,7 @@ public class ReservationController {
             HttpServletRequest request){
 
         String userId = (String) request.getSession().getAttribute("userId");
-        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
+        if(userId == null || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
         User user = userDao.findById(Long.valueOf(userId)).orElse(null);
         List<House> houses = houseDao.findAllExeptCurentUser(user);
@@ -55,7 +55,7 @@ public class ReservationController {
     ) throws ParseException {
 
         String userId = (String) request.getSession().getAttribute("userId");
-        if (Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()) {return "redirect:/";} //si pas connecté retour page connexion
+        if (userId == null || userDao.findById(Long.valueOf(userId)).isEmpty()) {return "redirect:/";} //si pas connecté retour page connexion
 
         User tenant = userDao.findById(Long.valueOf(userId)).orElse(null);
         House house = houseDao.findById(Long.valueOf(houseId)).orElse(null);

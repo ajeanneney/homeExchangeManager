@@ -10,23 +10,42 @@
 </head>
 <body>
 
-<h1>Reserver une maison</h1>
+<br><br><br>
+<div class="wrapper2">
 
-Nom de la maison : ${house.title}<br>
-Description de la maison : ${house.description}<br>
+    <div class="house_photos">
+        <c:forEach items="${house.photos}" var="p">
+            <img src="<%=request.getContextPath()%>/images/housephotos/${p.url}">
+        </c:forEach>
+    </div>
 
+    <div class="house_photos">
+        <a class = "titre_maison2"> ${house.title}<br> </a>
+        <a class = "description_maison2"> ${house.description}</a><br><br>
 
-<br><br>
-Photos :
-<c:forEach items="${photos}" var="p">
-    <img src="<%=request.getContextPath()%>/images/housephotos/${p.url}">
-</c:forEach>
+        Services à rendre dans cette maison : <br>
+        <c:forEach items="${house.services}" var="s">
+            ${s.name} : ${s.description}<br>
+        </c:forEach>
+        <br><br>
 
-<form action="/reserve/${house.id}" method="post">
-    date début : <input type="date" id="debut" name="debut"><br>
-    date fin : <input type="date" id="fin" name="fin"><br>
-    <button type="submit">Réserver</button>
-</form>
+        Contraintes de cette maison : <br>
+        <c:forEach items="${house.necessities}" var="n">
+            ${n.name} : ${n.description}<br>
+        </c:forEach>
+        <br><br>
+
+    </div>
+
+    <div>
+        <form action="/reserve/${house.id}" method="post">
+            date début : <input type="date" id="debut" name="debut"><br>
+            date fin : <input type="date" id="fin" name="fin"><br>
+            <button type="submit">Réserver</button>
+        </form>
+    </div>
+
+</div>
 
 </body>
 </html>

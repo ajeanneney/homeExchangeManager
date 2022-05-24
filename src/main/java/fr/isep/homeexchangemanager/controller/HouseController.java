@@ -43,7 +43,7 @@ public class HouseController {
             Model model
     ){
         String userId = (String) request.getSession().getAttribute("userId");
-        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
+        if(userId == null || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
         House house = houseDao.findById(Long.valueOf(houseId)).orElse(null);
 
@@ -64,7 +64,7 @@ public class HouseController {
             Model model) throws IOException {
 
         String userId = (String) request.getSession().getAttribute("userId");
-        if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
+        if(userId == null || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
         if(!Objects.equals(title, "") && !Objects.equals(description, "")){
 
