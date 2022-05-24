@@ -19,7 +19,7 @@
     <li><a href="/newhouse">Mettre en location</a></li>
     <li><a href="/home">Mes locations</a></li>
 
-    <li style="float:right; padding-right: 20px">
+    <li style="float:right; padding-right: 20px; a:initial;}">
         <img src="<%=request.getContextPath()%>/images/Icon_connect.png" height="55" width="55"/>
     </li>
 

@@ -13,7 +13,7 @@
 <h1>Admin</h1>
 
 <div>
-    <form>
+    <form action="/admin" method="post">
         Ajouter une contrainte ou un service :
         <div>
         <select name="type" id="type">
