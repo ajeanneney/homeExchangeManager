@@ -70,7 +70,7 @@ public class ConnexionController {
             );
             if(userDao.findByMail(user.getMail()) == null) {
                 Long newUserId = userDao.saveAndFlush(user).getId();
-                request.getSession().setAttribute("userId", newUserId);
+                request.getSession().setAttribute("userId", newUserId.toString());
                 return "redirect:home";
             } else{
                 return "signup";
