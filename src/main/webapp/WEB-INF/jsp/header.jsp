@@ -22,6 +22,7 @@
     <li style="float:right; padding-right: 20px">
         <img src="<%=request.getContextPath()%>/images/Icon_connect.png" height="55" width="55"/>
     </li>
+
     <c:choose>
         <c:when test="${sessionScope.userId == null}">
             <li style="float:right"><a href="/signup">Connexion/Inscription</a></li>
@@ -29,6 +30,11 @@
         <c:otherwise>
             <li style="float:right"><a href="/disconnect">Se déconnecter</a></li>
         </c:otherwise>
+    </c:choose>
+    <c:choose>
+        <c:when test="${sessionScope.isAdmin}">
+            <li style="float:right"><a href="/admin">Administration</a></li>
+        </c:when>
     </c:choose>
 
 </ul>

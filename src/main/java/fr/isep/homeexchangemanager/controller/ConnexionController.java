@@ -38,6 +38,9 @@ public class ConnexionController {
             if(Objects.equals(user.getPassword(), password)){
                 HttpSession session = request.getSession();
                 session.setAttribute("userId", user.getId().toString());
+                if(Objects.equals(mail, "admin@admin.com")){
+                    session.setAttribute("isAdmin", true);
+                }
                 return "redirect:home";
             } else{
                 System.out.println("mauvais password");
