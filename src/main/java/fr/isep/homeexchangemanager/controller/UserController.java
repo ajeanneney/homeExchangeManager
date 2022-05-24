@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
 
 @Controller
@@ -19,9 +20,10 @@ public class UserController {
 
     @RequestMapping(value = "profile")
     public String editProfile(
-            @CookieValue(value = "userId", defaultValue = "") String userId,
+            HttpServletRequest request,
             Model model
     ){
+        String userId = (String) request.getSession().getAttribute("userId");
         if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";}
 
         User user = userDao.findById(Long.valueOf(userId)).orElse(null);

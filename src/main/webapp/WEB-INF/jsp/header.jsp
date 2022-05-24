@@ -23,7 +23,7 @@
         <img src="<%=request.getContextPath()%>/images/Icon_connect.png" height="55" width="55"/>
     </li>
     <c:choose>
-        <c:when test="${cookie['userId'] == null || cookie['userId'] == ''}">
+        <c:when test="${sessionScope.userId == null}">
             <li style="float:right"><a href="/signup">Connexion/Inscription</a></li>
         </c:when>
         <c:otherwise>

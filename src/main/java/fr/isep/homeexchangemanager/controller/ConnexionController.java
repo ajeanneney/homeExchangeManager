@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
@@ -26,16 +28,16 @@ public class ConnexionController {
     public String connexion(
             @RequestParam(name = "mail", defaultValue = "") String mail,
             @RequestParam(name = "password", defaultValue = "") String password,
-            @CookieValue(value = "userId", defaultValue = "") String userId,
-            HttpServletResponse response){
+            HttpServletRequest request){
 
-        if(!Objects.equals(userId, "") && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:home";}
+        String userId = (String) request.getSession().getAttribute("userId");
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:home";}
 
         if(!Objects.equals(mail, "") && !Objects.equals(password, "")) {
             User user = userDao.findByMail(mail);
             if(Objects.equals(user.getPassword(), password)){
-                Cookie cookie = new Cookie("userId", user.getId().toString());
-                response.addCookie(cookie);
+                HttpSession session = request.getSession();
+                session.setAttribute("userId", user.getId().toString());
                 return "redirect:home";
             } else{
                 System.out.println("mauvais password");
@@ -46,13 +48,14 @@ public class ConnexionController {
 
     @RequestMapping(value = "/signup")
     public String signUp(
-            ServletRequest request,
+            ServletRequest formRequest,
             HttpServletResponse response,
-            @CookieValue(value = "userId", defaultValue = "") String userId){
+            HttpServletRequest request){
 
-        if(!Objects.equals(userId, "") && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:home";}
+        String userId = (String) request.getSession().getAttribute("userId");
+        if(userId != null && userDao.findById(Long.valueOf(userId)).isPresent()){return "redirect:home";}
 
-        Map<String, String[]> paramMap = request.getParameterMap();
+        Map<String, String[]> paramMap = formRequest.getParameterMap();
 
         if(paramMap.containsKey("firstname") && paramMap.containsKey("lastname") && paramMap.containsKey("mail") && paramMap.containsKey("password")){
             System.out.println(Arrays.toString(paramMap.get("firstname")));
@@ -64,12 +67,9 @@ public class ConnexionController {
             );
             if(userDao.findByMail(user.getMail()) == null) {
                 Long newUserId = userDao.saveAndFlush(user).getId();
-                Cookie cookie = new Cookie("userId", newUserId.toString());
-                response.addCookie(cookie);
-                System.out.println("new user");
+                request.getSession().setAttribute("userId", newUserId);
                 return "redirect:home";
             } else{
-                System.out.println("mail deja utilisé");
                 return "signup";
             }
         }

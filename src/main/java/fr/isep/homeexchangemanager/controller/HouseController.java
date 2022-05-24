@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
@@ -37,10 +38,11 @@ public class HouseController {
 
     @GetMapping("/house/{id}")
     public String viewHouse(
-            @CookieValue(value = "userId", defaultValue = "") String userId,
+            HttpServletRequest request,
             @PathVariable(value = "id") String houseId,
             Model model
     ){
+        String userId = (String) request.getSession().getAttribute("userId");
         if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
         House house = houseDao.findById(Long.valueOf(houseId)).orElse(null);
@@ -53,14 +55,15 @@ public class HouseController {
 
     @RequestMapping(value = "/newhouse")
     public String newHouse(
-            @CookieValue(value = "userId", defaultValue = "") String userId,
+            HttpServletRequest request,
             @RequestParam(name = "title", defaultValue = "") String title,
             @RequestParam(name = "description", defaultValue = "") String description,
             @RequestParam(name = "photos", required = false) MultipartFile[] photos,
             @RequestParam(name = "necessities", required = false) Long[] necessities,
             @RequestParam(name = "services", required = false) Long[] services,
-            Model model,
-            ServletRequest request) throws IOException {
+            Model model) throws IOException {
+
+        String userId = (String) request.getSession().getAttribute("userId");
         if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
         if(!Objects.equals(title, "") && !Objects.equals(description, "")){

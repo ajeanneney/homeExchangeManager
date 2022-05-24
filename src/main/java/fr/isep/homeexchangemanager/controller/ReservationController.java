@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,8 +34,9 @@ public class ReservationController {
     @RequestMapping(value = "/search")
     public String search(
             Model model,
-            @CookieValue(value = "userId", defaultValue = "") String userId){
+            HttpServletRequest request){
 
+        String userId = (String) request.getSession().getAttribute("userId");
         if(Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
         User user = userDao.findById(Long.valueOf(userId)).orElse(null);
@@ -45,12 +47,14 @@ public class ReservationController {
 
     @RequestMapping("/reserve/{id}")
     public String reserveHouse(
-            @CookieValue(value = "userId", defaultValue = "") String userId,
+            HttpServletRequest request,
             @PathVariable(value = "id") String houseId,
             @RequestParam(name = "debut", required = false) String debut,
             @RequestParam(name = "fin", required = false) String fin,
             Model model
     ) throws ParseException {
+
+        String userId = (String) request.getSession().getAttribute("userId");
         if (Objects.equals(userId, "") || userDao.findById(Long.valueOf(userId)).isEmpty()) {return "redirect:/";} //si pas connecté retour page connexion
 
         User tenant = userDao.findById(Long.valueOf(userId)).orElse(null);
