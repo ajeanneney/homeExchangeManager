@@ -36,12 +36,13 @@
         <br><br>
 
     </div>
-
+    <br>
     <div>
+        <br>
         <form action="/reserve/${house.id}" method="post">
-            date début : <input type="date" id="debut" name="debut"><br>
-            date fin : <input type="date" id="fin" name="fin"><br>
-            <button type="submit">Réserver</button>
+            date début : <input type="date" id="debut" name="debut" class="inputReserve"><br><br>
+            date fin : <input type="date" id="fin" name="fin" class="inputReserve"><br><br>
+            <button type="submit" class="buttonReserve">Réserver</button>
         </form>
     </div>
 

@@ -46,11 +46,16 @@ li a {
     border-radius: 500px;
     height: 50%;
     font-size: medium;
+    box-shadow: 3px 3px 2px #1D2B40; ;
 }
 
 li a:hover {
     background-color: #74AEFF;
     color: #395780;
+
+}
+li a:active{
+    box-shadow: 0px 0px #1D2B40;
 }
 
 h1{
@@ -109,16 +114,6 @@ div.shadow3{
     text-align: center;
 }
 
-input.input2{
-    font-family: Verdana;
-    color: #74AEFF;
-    border: #74AEFF solid 2px;
-    border-radius: 30px;
-    padding : 5px 0px 5px 10px;
-    min-width: 350px;
-    margin-bottom: 5px;
-}
-
 textarea.input2{
     font-family: Verdana;
     color: #74AEFF;
@@ -129,6 +124,17 @@ textarea.input2{
 }
 
 input.form-control{
+    font-family: Verdana;
+    color: #74AEFF;
+    box-sizing: border-box;
+    border: #74AEFF solid 4px;
+    border-radius: 500px;
+    background-color: #395780;
+    margin-top: 5px;
+    caret-color: #74AEFF;
+}
+
+input.form-control select{
     font-family: Verdana;
     color: #74AEFF;
     box-sizing: border-box;
@@ -270,4 +276,96 @@ div.house_photos{
     border-radius: 20px;
     background-color: #395780;
     padding : 20px;
+}
+
+/* ------------------------  ADMIN  ------------------------ */
+
+select.selectAdmin{
+    display: table;
+    color: #74AEFF;
+    background-color: #395780;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float: left;
+    box-sizing: border-box;
+    border: #74AEFF solid 2px;
+    height: 50%;
+    font-size: medium;
+}
+
+button.buttonAdmin{
+    display: table;
+    color: #74AEFF;
+    background-color: #395780;
+    text-align: center;
+    padding: 1px 5px;
+    text-decoration: none;
+    float: left;
+    box-sizing: border-box;
+    border: #74AEFF solid 2px;
+    border-radius: 5px;
+    height: 50%;
+    font-size: medium;
+    box-shadow: 2px 2px 1px darkslategrey;
+}
+
+button.buttonAdmin:active{
+    box-shadow: 0px 0px darkslategrey;
+}
+
+
+/* ------------------------  ADMIN  ------------------------ */
+
+button.buttonReserve{
+    display: table;
+    color: #74AEFF;
+    background-color: #395780;
+    text-align: center;
+    padding: 1px 5px;
+    text-decoration: none;
+    float: left;
+    box-sizing: border-box;
+    border: #74AEFF solid 2px;
+    border-radius: 5px;
+    height: 50%;
+    font-size: medium;
+    box-shadow: 2px 2px 1px dimgrey;
+}
+
+input.inputReserve{
+    color: #395780;
+    background-color: #395780;
+    text-align: center;
+    border: #1D2B40 solid 2px;
+}
+
+
+/* ------------------------   NEW HOUSE ------------------------ */
+
+form.gridNewhouse {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+div.div1 {
+    grid-column: 1 / 2;
+    grid-row: 1;
+}
+
+div.div2 {
+    grid-column: 2 / 2;
+    grid-row: 1;
+}
+
+input.input2{
+    font-family: Verdana;
+    color: #74AEFF;
+    border: #74AEFF solid 2px;
+    border-radius: 30px;
+    padding : 5px 0px 5px 10px;
+    min-width: 350px;
+    margin-bottom: 5px;
 }
