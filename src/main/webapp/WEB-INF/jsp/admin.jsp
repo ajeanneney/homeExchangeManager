@@ -15,15 +15,16 @@
 <div>
     <form action="/admin" method="post">
         Ajouter une contrainte ou un service :
+        <br>
         <div>
-        <select name="type" id="type">
+        <select name="type" id="type" class="selectAdmin">
             <option value="necessity">Contrainte</option>
             <option value="service">Service</option>
         </select>
-        </div>
-        <div>Titre <input type="text" name="title" id="title"></div>
-        <div>Description <input type="text" name="description" id="description"></div>
-        <button type="submit">Créer</button>
+        </div><br><br>
+        <div>Titre <input type="text" name="title" id="title" class="inputAdmin"></div>
+        <div>Description <input type="text" name="description" id="description" class="inputAdmin"></div><br>
+        <button type="submit" class="buttonAdmin">Créer</button> <br><br>
     </form>
 </div>
 
