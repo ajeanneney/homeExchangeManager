@@ -43,7 +43,7 @@
 
 
     <div>
-        <button type="submit" class="btn_btn-ter_m-2">Créer la maison</button>
+        <button type="submit" class="btn_btn-ter_m-2" style="box-shadow: 2px 2px">Créer la maison</button>
     </div>
 
     </div>
