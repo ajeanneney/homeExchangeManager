@@ -17,4 +17,5 @@ public interface HouseRepository extends JpaRepository<House, Long> {
     @Query("select h from House h where h.owner <> :x")
     public List<House> findAllExeptCurentUser(@Param("x")User user);
 
+    public List<House> findByTitleContainingIgnoreCase(String title);
 }

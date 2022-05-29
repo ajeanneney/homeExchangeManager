@@ -10,6 +10,13 @@
 </head>
 <body class="text_center">
 
+<div>
+    <form action="/search" method="post">
+        <label for="search">Recherche : </label><input type="text" id="search" name="search" value="${search}">
+        <button type="submit">Rechercher</button>
+    </form>
+</div>
+
 <c:forEach items="${houses}" var="h">
 
     <div class="wrapper">

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -34,13 +33,23 @@ public class ReservationController {
     @RequestMapping(value = "/search")
     public String search(
             Model model,
-            HttpServletRequest request){
+            HttpServletRequest request,
+            @RequestParam(value = "search", required = false) String search){
+
+        System.out.println(search);
 
         String userId = (String) request.getSession().getAttribute("userId");
         if(userId == null || userDao.findById(Long.valueOf(userId)).isEmpty()){return "redirect:/";} //si pas connecté retour page connexion
 
+        List<House> houses;
         User user = userDao.findById(Long.valueOf(userId)).orElse(null);
-        List<House> houses = houseDao.findAllExeptCurentUser(user);
+
+        if(search != null){
+            houses = houseDao.findByTitleContainingIgnoreCase(search);
+            model.addAttribute("search", search);
+        } else {
+            houses = houseDao.findAllExeptCurentUser(user);
+        }
         model.addAttribute("houses", houses);
         return "searchhouse";
     }
